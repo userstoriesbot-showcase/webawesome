@@ -1,0 +1,13 @@
+# Showcase fork only (never part of an upstream pull request).
+# `npm start` (build, then the docs dev server) chooses its own port in 4000 to 4999 and takes no port flag,
+# so .userstoriesbot/start.mjs runs it and forwards {port} to whatever port it chose.
+version: 1
+app:
+  install: "npm ci"
+  start: node .userstoriesbot/start.mjs {port}
+  url: http://localhost:{port}
+  readyPath: /docs/group-spacing/
+  runtime: node22
+demo:
+  maxVideos: 1
+  beforePass: true
